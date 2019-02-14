@@ -1,8 +1,8 @@
 # Librería de Evora Board para Arduino
 
-Esta es una[Librería de Arduino](https://www.arduino.cc/en/Guide/Libraries) para la tarjeta [Evora Board](https://www.facebook.com/EvoraBoard/) para la comunicacion via [The Things Network](https://www.thethingsnetwork.org).
+Esta es una [librería de Arduino](https://www.arduino.cc/en/Guide/Libraries) para la tarjeta [Evora Board](https://www.facebook.com/EvoraBoard/) para la comunicacion via [The Things Network](https://www.thethingsnetwork.org) por medio del protocolo LoRaWAN.
 
-> Por le momento la librería funciona con los modulos de [Microchip RN2xx3 ](http://www.microchip.com/design-centers/wireless-connectivity/embedded-wireless/lora-technology).
+> Por le momento la librería solo funciona con modulos [Microchip RN2xx3 ](http://www.microchip.com/design-centers/wireless-connectivity/embedded-wireless/lora-technology).
 
 ## Installation
 
