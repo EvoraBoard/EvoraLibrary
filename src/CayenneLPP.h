@@ -1,6 +1,6 @@
 // Adapted from https://developer.mbed.org/teams/myDevicesIoT/code/Cayenne-LPP/
 
-// Copyright © 2017 The Things Network
+// Copyright © 2019 Evora Board
 // Use of this source code is governed by the MIT license that can be found in the LICENSE file.
 
 #ifndef _CAYENNE_LPP_H_
