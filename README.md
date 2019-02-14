@@ -4,13 +4,13 @@ Esta es una [librería de Arduino](https://www.arduino.cc/en/Guide/Libraries) pa
 
 > Por le momento la librería solo funciona con modulos [Microchip RN2xx3 ](http://www.microchip.com/design-centers/wireless-connectivity/embedded-wireless/lora-technology).
 
-## Installation
+## Instalación
 
 * Instala la librería [Importando el arcivo .zip](https://www.arduino.cc/en/Guide/Libraries#toc4) usando el archivo [master](https://github.com/EvoraBoard/EvoraLibrary/archive/master.zip).
 
 
 
-## Examples
+## Ejemplos
 
 La librería contiene [ejemplos](examples). 
 Despues de instalar la librería es necesario reiniciar el IDE de Arduino para despues poder encontrarla bajo la siguiente ruta **Archivo > Ejemplos > EvoraBoard**.
