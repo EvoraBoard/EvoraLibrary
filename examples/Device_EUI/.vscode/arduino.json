@@ -1,6 +1,0 @@
-{
-    "sketch": "Device_EUI.ino",
-    "board": "arduino:avr:leonardo",
-    "port": "COM11",
-    "programmer": "AVRISP mkII"
-}
