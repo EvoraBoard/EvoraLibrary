@@ -2,7 +2,7 @@
 
 //Configuración de credenciales
 const char *appEui = "0000000000000000";
-const char *appKey = "00000000000000000000000000000000";
+const char *appKey = "00000001000000000000000000000000";
 
 #define loraSerial Serial1
 #define debugSerial Serial
