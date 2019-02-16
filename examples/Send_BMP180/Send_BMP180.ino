@@ -8,6 +8,7 @@ const char *appKey = "00000000000000000000000000000000";
 
 #define loraSerial Serial1
 #define debugSerial Serial
+
 // Seleccionar la plan de frecuencia que usa el modulo (TTN_FP_EU868 o TTN_FP_US915)
 #define freqPlan TTN_FP_US915
 

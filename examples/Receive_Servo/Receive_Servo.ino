@@ -1,11 +1,13 @@
 #include <EvoraBoard.h>
 #include <Servo.h>
+
 //Configuración de credenciales
 const char *appEui = "0000000000000000";
 const char *appKey = "00000000000000000000000000000000";
 
 #define loraSerial Serial1
 #define debugSerial Serial
+
 // Seleccionar la plan de frecuencia que usa el modulo (TTN_FP_EU868 o TTN_FP_US915)
 #define freqPlan TTN_FP_US915
 #define servo 9
@@ -38,7 +40,7 @@ void loop()
   payload[0]=highByte(lect);
   payload[1]=lowByte(lect);
 
-  // Enviar data
+  // Enviar datos
   ttn.sendBytes(payload, sizeof(payload));
     
   delay(10000);

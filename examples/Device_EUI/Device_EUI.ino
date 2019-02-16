@@ -2,7 +2,9 @@
 
 #define loraSerial Serial1
 #define debugSerial Serial
-#define freqPlan TTN_FP_US915 // Reemplazar conTTN_FP_EU868 or TTN_FP_US915
+
+// Seleccionar la plan de frecuencia que usa el modulo (TTN_FP_EU868 o TTN_FP_US915)
+#define freqPlan TTN_FP_US915 
 
 EvoraBoard ttn(loraSerial, debugSerial, freqPlan);
 

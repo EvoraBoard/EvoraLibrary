@@ -11,7 +11,7 @@ const char *appKey = "00000000000000000000000000000000";
 #define freqPlan TTN_FP_US915
 
 EvoraBoard ttn(loraSerial, debugSerial, freqPlan);
-int cont=0;
+
 void setup()
 {
   loraSerial.begin(57600);
@@ -30,25 +30,14 @@ void setup()
 
 void loop()
 {
-  debugSerial.print("-- LOOP ");
-  debugSerial.println(cont);
-  
-  // Preparar datos
-  byte payload[] = "Hola, soy Evora :)";
+  debugSerial.println("-- LOOP");
 
-  // Enviar datos
-  ttn.sendBytes(payload, sizeof(payload)-1);
-    cont++;
+  // Preparar payload 
+  byte payload[1];
+  payload[0] = (digitalRead(LED_BUILTIN) == HIGH) ? 1 : 0;
+
+  //Enviar payload
+  ttn.sendBytes(payload, sizeof(payload));
+
   delay(10000);
 }
-
-/*PAYLOAD FORMAT
-function Decoder(bytes, port) {
-  var result = "";
-  for (var i = 0; i < bytes.length; i++) {
-    result += (String.fromCharCode(bytes[i]));
-  }
-
-  return {text: result};
-}
-*/
