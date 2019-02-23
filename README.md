@@ -8,7 +8,10 @@ Esta es una [librería de Arduino](https://www.arduino.cc/en/Guide/Libraries) pa
 
 * Instala la librería [Importando el arcivo .zip](https://www.arduino.cc/en/Guide/Libraries#toc4) usando el archivo [master](https://github.com/EvoraBoard/EvoraLibrary/archive/master.zip).
 
-
+## Documentation
+Definicion de los metodos dentro de la librería.
+* API Reference:
+    * [EvoraLibrary](docs/EvoraLibrary.md)
 
 ## Ejemplos
 
