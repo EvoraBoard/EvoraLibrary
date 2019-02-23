@@ -1,6 +1,6 @@
 # API Reference
 
-La  clase `EvoraBoard` permite que dispositivos Arduino con modulos de LoRaWAN puedan cominicarse a The Things Network. Por el momento solo son soportados los modulos de Microchip RN2903 y RN2483.
+La  clase `EvoraBoard` permite que dispositivos Arduino con modulos de LoRaWAN puedan cominicarse a [The Things Network](https://www.thethingsnetwork.org/). Por el momento solo son soportados los modulos de Microchip RN2903 y RN2483.
 
 ## Class: `EvoraBoard`
 Incluye y crea una instancia de la clase EvoraBoard. El constructor inicia la la librería con el Streams que usará para comunicarse. Ademas configura el valor del Spreading Factor, el plan de frecuencia, y las sub banda de frecuencia.
