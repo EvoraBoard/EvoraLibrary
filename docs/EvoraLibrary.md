@@ -37,7 +37,7 @@ size_t getHardwareEui(char *buffer, size_t size);
 
 ## Method: `getAppEui`
 
-Obtiene el AppEUI guardada en el modulo. El AppEUI puede ser configurada usando `provision()` o `join()`.
+Obtiene el AppEUI guardado en el módulo. El AppEUI puede ser configurado usando `provision()` o `join()`.
 
 ```c
 size_t getAppEui(char *buffer, size_t size);
@@ -63,11 +63,11 @@ RX Delay 1: 1000
 RX Delay 2: 2000
 ```
 
-Mira el  ejemplo [Device_EUI](https://github.com/EvoraBoard/EvoraLibrary/blob/master/examples/Device_EUI/Device_EUI.ino).
+Mira el ejemplo [Device_EUI](https://github.com/EvoraBoard/EvoraLibrary/blob/master/examples/Device_EUI/Device_EUI.ino).
 
 ## Method: `onMessage`
 
-Establece una funcion  que será llamada para procesar los mensajes entrantes. Se recomienda hacer esto en la función `setup()` y luego definir la función `void (*cb)(const byte* payload, size_t length, port_t port)` en cualquier otra parte del programa.
+Establece una funcion  que será llamada para procesar los mensajes entrantes. Se recomienda hacer esto en la función `setup()` y luego definir la función `void (*cb)(const byte* payload, size_t length, port_t port)` en cualquier otra parte del codigo.
 
 
 ```c
@@ -92,42 +92,42 @@ bool join(int8_t retries = -1, uint32_t retryDelay = 10000);
 - `const char *appEui`: AppEUI del dispositivo registrado.
 - `const char *appKey`: AppKey asignada al dispositivo.
 - `int8_t retries = -1`: Numero de veces para reinterar despues de fallar o no confirmar el join. Por defecto es`-1` que significa infinito
-- `uint32_t retryDelay = 10000`: Delay in ms between attempts. Defaults to 10 seconds.
+- `uint32_t retryDelay = 10000`: Tiempo en milisegundos entre los intentos. Por defecto son 10 segundos.
 
-Returns `true` or `false` depending on whether it received confirmation that the activation was successful before the maximum number of attempts.
+Regresa un `true` o `false` dependiendo de si se recibió la confirmación de que la activación se realizó correctamente antes del número máximo de intentos.
 
-Call the method without the first two arguments if the device's LoRa module comes with pre-flashed values.
+Llama al metodo sin los primeros dos argumentos si el modulo LoRa viene con credenciales predefinidas.
 
 ## Method: `personalize`
 
-Activate the device via ABP.
+Activación via ABP.
 
 ```c
 bool personalize(const char *devAddr, const char *nwkSKey, const char *appSKey);
 bool personalize();
 ```
 
-- `const char *devAddr`: Device Address assigned to the device.
-- `const char *nwkSKey`: Network Session Key assigned to the device for identification.
-- `const char *appSKey`: Application Session Key assigned to the device for encryption.
+- `const char *devAddr`: Device Address asignado al dispositivo.
+- `const char *nwkSKey`: Network Session Key asignado al dispositivo para su identificación.
+- `const char *appSKey`: Application Session Key asignado al dispositivo para la encriptación.
 
-Returns `true` or `false` depending on whether the activation was successful.
+Regresa un `true` o `false` dependiendo de si la activación fue exitosa.  
 
-Call the method with no arguments if the device's LoRa module comes with pre-flashed values.
+Llama al metodo sin los argumentos si el modulo LoRa viene con credenciales predefinidas.
 
-See the [SendABP](https://github.com/TheThingsNetwork/arduino-device-lib/blob/master/examples/SendABP/SendABP.ino) example.
+Mira el ejemplo [Send_ABP](https://github.com/EvoraBoard/EvoraLibrary/blob/master/examples/Send_ABP/Send_ABP.ino).
 
 ## Method: `sendBytes`
 
-Send a message to the application using raw bytes.
+Envía un mensaje a la aplicacion utilizando bytes.
 
 ```c
 ttn_response_t sendBytes(const byte* payload, size_t length, port_t port = 1, bool confirm = false, uint8_t sf = 0);
 ```
 
-- `const byte* payload `: Bytes to send.
-- `size_t length`: The number of bytes. Use `sizeof(payload)` to get it.
-- `port_t port = 1`: The port to address. Defaults to `1`.
+- `const byte* payload `: Bytes por enviar.
+- `size_t length`: Numero de bytes. Use `sizeof(payload)` para obtenerlo.
+- `port_t port = 1`: El puerto por donde enviar el mensaje. Por defecto es `1`.
 - `bool confirm = false`: Whether to ask for confirmation. Defaults to `false`. If confirmation fails, the method will return error code `TTN_ERROR_UNEXPECTED_RESPONSE`.
 - `uint8_t sf = 0`: Override the spreading factor (SF). If the default value `0` is passed, the SF is not changed from the constructor or previous value.
 
@@ -168,17 +168,17 @@ bool provision(const char *appEui, const char *appKey);
 
 ## Method: `sleep`
 
-Sleep the LoRa module for a specified number of milliseconds.
+Duerme el modulo LoRa por un tiempo en específico en milisegundos.
 
 ```c
 void sleep(unsigned long mseconds);
 ```
 
-- `unsigned long mseconds`: number of milliseconds to sleep.
+- `unsigned long mseconds`: Numero en milisegundos para dormir.
 
 ## Method: `wake`
 
-Wake up the LoRa module from sleep before the expiration of the defined time.
+Activa el módulo LoRa desde el modo de espera antes de que finalice el tiempo definido.
 
 ```c
 void wake();
@@ -186,17 +186,17 @@ void wake();
 
 ## Method: `linkCheck`
 
-Sets the time interval for the link check process to be triggered.
+Establece el intervalo de tiempo para que se active el proceso de `Link Check`.
 
 ```c
 void linkCheck(uint16_t seconds);
 ```
 
-- `uint16_t seconds`: the time interval in seconds. A value of 0 will disable the link check process.
+- `uint16_t seconds`: El intervalo de tiempo en segundos. Un valor de 0 deshabilitará el proceso `Link Check`.
 
 ## Method: `getLinkCheckGateways`
 
-Gets the number of gateways that successfully received the last Link Check Request frame.
+Obtiene el numero de gateways que recibieron exitosamente la ultima solicitud de `Link Check Request`.
 
 ```c
 uint8_t getLinkCheckGateways();
@@ -204,7 +204,7 @@ uint8_t getLinkCheckGateways();
 
 ## Method: `getLinkCheckMargin`
 
-Gets the demodulation margin as received in the last Link Check Answer frame.
+Obtiene el marjen de demodulación tal como se recibió en el ultimo `Link Check Answer`.
 
 ```c
 uint8_t getLinkCheckMargin();
@@ -212,7 +212,7 @@ uint8_t getLinkCheckMargin();
 
 ## Method: `getVDD`
 
-Returns the voltage in millivolt (mV) measured by the RN2xxx LoRa module. It's for information only since we don't know how it's measured but looks like accurate.
+Regresa el voltaje en milivolts (mV) medido por el modulo RN2xx3. Es solo por información.
 
 ```c
 uint16_t getVDD();
