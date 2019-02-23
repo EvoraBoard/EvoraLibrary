@@ -128,43 +128,31 @@ ttn_response_t sendBytes(const byte* payload, size_t length, port_t port = 1, bo
 - `const byte* payload `: Bytes por enviar.
 - `size_t length`: Numero de bytes. Use `sizeof(payload)` para obtenerlo.
 - `port_t port = 1`: El puerto por donde enviar el mensaje. Por defecto es `1`.
-- `bool confirm = false`: Whether to ask for confirmation. Defaults to `false`. If confirmation fails, the method will return error code `TTN_ERROR_UNEXPECTED_RESPONSE`.
-- `uint8_t sf = 0`: Override the spreading factor (SF). If the default value `0` is passed, the SF is not changed from the constructor or previous value.
+- `bool confirm = false`: Solicitar confirmación. Por defecto es `false`. Si la confirmación falla, el metodo regresará un codigo de error `TTN_ERROR_UNEXPECTED_RESPONSE`.
+- `uint8_t sf = 0`: Anular el spreading factor (SF) definido en el constructor. Si el valor de `0` no es editado, el SF no se cambia del constructor o del valor anterior.
 
+Regresa un mensaje de error o de exito 
 Returns a success or error code and logs the related error message:
 
-* `TTN_ERROR_SEND_COMMAND_FAILED`: Send command failed.
-* `TTN_SUCCESSFUL_TRANSMISSION`: Successful transmission.
-* `TTN_SUCCESSFUL_RECEIVE`: Successful transmission. Received \<N> bytes
-* `TTN_ERROR_UNEXPECTED_RESPONSE`: Unexpected response: \<Response>
+* `TTN_ERROR_SEND_COMMAND_FAILED`: Fallo al enviar el comando
+* `TTN_SUCCESSFUL_TRANSMISSION`: Transmisión exitosa.
+* `TTN_SUCCESSFUL_RECEIVE`: Transmisión exitosa. Se recibieron \<N> bytes
+* `TTN_ERROR_UNEXPECTED_RESPONSE`: Respuesta inesperada: \<Response>
 
-See the [SendOTAA](https://github.com/TheThingsNetwork/arduino-device-lib/blob/master/examples/SendOTAA/SendOTAA.ino) example.
+Mira el ejemplo [Send_OTAA](https://github.com/EvoraBoard/EvoraLibrary/blob/master/examples/Send_OTAA/Send_OTAA.ino).
 
-## Method: `poll`
 
-Calls `sendBytes()` with `{ 0x00 }` as payload to poll for incoming messages.
-
-```c
-int8_t poll(port_t port = 1, bool confirm = false);
-```
-
-- `port_t port = 1`: The port to address. Defaults to `1`.
-- `bool confirm = false`: Whether to ask for confirmation.
-
-Returns the result of `sendBytes()`.
-
-See the [Receive](https://github.com/TheThingsNetwork/arduino-device-lib/blob/master/examples/Receive/Receive.ino) example.
 
 ## Method: `provision`
 
-Sets the information needed to activate the device via OTAA, without actually activating. Call join() without the first 2 arguments to activate.
+Establece la información necesaria para activar el dispositivo a través de OTAA, sin activarlo realmente. Llame la función join () sin los primeros 2 argumentos para activar.
 
 ```c
 bool provision(const char *appEui, const char *appKey);
 ```
 
-- `const char *appEui`: Application Identifier for the device.
-- `const char *appKey`: Application Key assigned to the device.
+- `const char *appEui`: AppEUI del dispositivo registrado.
+- `const char *appKey`: AppKey asignada al dispositivo.
 
 ## Method: `sleep`
 
