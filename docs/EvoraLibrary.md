@@ -74,9 +74,9 @@ Establece una funcion  que será llamada para procesar los mensajes entrantes. S
 void onMessage(void (*cb)(const byte* payload, size_t length, port_t port));
 ```
 
-- `const byte* payload`: Bytes received.
-- `size_t length`: Number of bytes.
-- `port_t port`: The port addressed.
+- `const byte* payload`: Bytes recibidos.
+- `size_t length`: Numero de bytes.
+- `port_t port`: Puerto por donde se recibieron los bytes.
 
 Mira el ejemplo [Receive_Data](https://github.com/EvoraBoard/EvoraLibrary/blob/master/examples/Receive_Data/Receive_Data.ino).
 
